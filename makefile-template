@@ -1,0 +1,24 @@
+
+# Makefile
+# dark_neo
+# Original Makefile template date creation:
+#	2014-06-06
+
+CC	= gcc
+CFLAGS 	= -Wall -O2 -g
+SRC 	= 
+OBJS 	= ${SRC:.c=.o}
+VERSION = 0.0.0
+EXEC 	= -${VERSION}
+
+all: ${EXEC}
+
+${EXEC}: ${OBJS}
+		${CC} ${CFLAGS} -o ${EXEC} ${OBJS}
+
+%.o: %.c %.h
+		${CC} ${CFLAGS} -c ${SRC}
+
+clean:
+		rm -fv ${EXEC} ${OBJS}
+
